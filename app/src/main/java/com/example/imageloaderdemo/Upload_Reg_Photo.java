@@ -64,7 +64,6 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(View v) {
                 selectImage();
-                //checkCameraPermission();
             }
         });
 
@@ -82,13 +81,7 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
             public void onClick(DialogInterface dialog, int item) {
                 if (options[item].equals("Take Photo"))
                 {
-
-                    //openCamera();
                     checkCameraPermission();
-//                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
-//                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
-//                    startActivityForResult(intent, 1);
                 }
                 else if (options[item].equals("Choose from Gallery"))
                 {
@@ -104,63 +97,44 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
     }
 
      void checkCameraPermission() {
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             openCamera();
         } else {
             requestCameraPermission();
         }
+
     }
 
     private void requestCameraPermission() {
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
-        }
 
-//        Toast.makeText(this, "Requesting Permission", Toast.LENGTH_SHORT).show();
-//        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSION_REQUEST_CAMERA);
-//        } else {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSION_REQUEST_CAMERA);
-//        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSION_REQUEST_CAMERA);
+        }
     }
 
     void openCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        // start the image capture Intent
         startActivityForResult(intent, 100);
     }
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        //Toast.makeText(this, requestCode + "\n" + grantResults[0] + "\n" + permissions[0] , Toast.LENGTH_SHORT).show();
-//        if (requestCode == MY_PERMISSION_REQUEST_CAMERA && grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//            openCamera();
-//        } else {
-//            //Toast.makeText(this, "Sorry, We are not able to scan without your permission.", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
 
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == 0) {
+        if (requestCode == MY_PERMISSION_REQUEST_CAMERA) {
 
             //Toast.makeText(this, grantResults[1] + "   " + PackageManager.PERMISSION_GRANTED + " \n" + grantResults[0] + "   " + PackageManager.PERMISSION_GRANTED, Toast.LENGTH_SHORT).show();
 
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-//                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+            Log.d("Testing permission", PackageManager.PERMISSION_GRANTED + "  " + grantResults[0]  ) ;
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openCamera();
                 }
             }
         }
-    
+
 
 
     @Override
