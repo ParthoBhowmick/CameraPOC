@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:background="#022335"
+                android:layout_width="match_parent"
+                android:padding="12dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/logo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24.699982dip"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="23.0dip"
+                android:textColorHint="#000">
+
+                <AutoCompleteTextView
+                    android:id="@+id/userId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/envelope"
+                    android:drawablePadding="10.0dip"
+                    android:hint="E-mail / Mobile No."
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:completionThreshold="1"
+                    android:paddingTop="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:paddingBottom="18.0dip"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:imeOptions="actionNext"
+                    android:textSize="14.699982sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                app:passwordToggleEnabled="true"
+                android:layout_marginLeft="24.699982dip"
+                android:layout_marginRight="23.0dip"
+                android:textColorHint="#000">
+
+                <EditText
+                    android:id="@+id/userPassword"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10.0dip"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"
+                    android:paddingTop="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:paddingBottom="15.0dip"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:textSize="14.699982sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <CheckBox
+                    android:id="@+id/remember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="23dp"
+                    android:text="Remember me?" />
+
+                <TextView
+                    android:id="@+id/forgot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="12dp"
+                    android:padding="8dp"
+                    android:text="Forget Password?" />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/loginBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16.0dip"
+                android:layout_marginTop="35.0dip"
+                android:layout_marginRight="16.0dip"
+                android:background="@drawable/button_rect"
+                android:gravity="center_horizontal"
+                android:paddingTop="16.0dip"
+                android:paddingBottom="16.0dip"
+                android:text="LOGIN"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
