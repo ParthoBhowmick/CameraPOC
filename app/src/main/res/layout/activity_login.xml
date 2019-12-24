@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:background="#022335"
+                android:background="@color/colorAccent"
                 android:layout_width="match_parent"
                 android:padding="12dp"
                 android:layout_height="150dp"
@@ -34,9 +34,9 @@
                     android:id="@+id/userId"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/envelope"
+                    android:drawableRight="@drawable/ic_mail_black_24dp"
                     android:drawablePadding="10.0dip"
-                    android:hint="E-mail / Mobile No."
+                    android:hint="Mobile Number"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:completionThreshold="1"
@@ -113,6 +113,7 @@
                 android:paddingBottom="16.0dip"
                 android:text="LOGIN"
                 android:textStyle="bold"
+                android:backgroundTint="@color/colorAccent"
                 android:textColor="#FFFFFF"
                 android:textSize="17sp" />
 

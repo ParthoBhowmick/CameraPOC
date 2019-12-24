@@ -128,7 +128,7 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
 
             //Toast.makeText(this, grantResults[1] + "   " + PackageManager.PERMISSION_GRANTED + " \n" + grantResults[0] + "   " + PackageManager.PERMISSION_GRANTED, Toast.LENGTH_SHORT).show();
 
-            Log.d("Testing permission", PackageManager.PERMISSION_GRANTED + "  " + grantResults[0]  ) ;
+            Log.d("Testing permission", PackageManager.PERMISSION_GRANTED + "  " + grantResults[0]) ;
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     openCamera();
                 }
@@ -150,9 +150,9 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
                 String picturePath = c.getString(columnIndex);
                 c.close();
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
-                thumbnail = getResizedBitmap(thumbnail, 400);
+//                thumbnail = getResizedBitmap(thumbnail, 400);
                 IDProf.setImageBitmap(thumbnail);
-                BitMapToString(thumbnail);
+//                BitMapToString(thumbnail);
             }
 
 
@@ -172,7 +172,7 @@ public class Upload_Reg_Photo extends AppCompatActivity implements View.OnClickL
 //                picturePath = cursor.getString(columnIndex);
 //                cursor.close();
 //
-//                Bitmap photo = (Bitmap) data.getExtras().get("data");
+//              Bitmap photo = (Bitmap) data.getExtras().get("data");
                 ImageView imageView = findViewById(R.id.IdProf);
                 imageView.setImageBitmap(photo);
             }
